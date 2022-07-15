@@ -1,25 +1,86 @@
 import './style.css'
 
 let state = {
-
+ page:'home'
 }
 
+function renderHomePage(appEl:Element) {
+    let mainEl = document.createElement('main')
 
+    let titleEl = document.createElement('h1')
+    titleEl.textContent = 'Hollixton'
+
+    let subtitleEl = document.createElement('h2')
+    subtitleEl.textContent ='Hope you enjoy our site!'
+
+    mainEl.append(titleEl, subtitleEl) 
+    appEl.append(mainEl) 
+}
+
+function renderGirlsPage(appEl:Element) {
+    let mainEl = document.createElement('main')
+
+    let titleEl = document.createElement('h1')
+    titleEl.textContent = 'Girls'
+    
+    mainEl.append(titleEl) 
+    appEl.append(mainEl) 
+}
+
+function renderGuysPage(appEl:Element) {
+    let mainEl = document.createElement('main')
+
+    let titleEl = document.createElement('h1')
+    titleEl.textContent = 'Guys'
+
+    mainEl.append(titleEl) 
+    appEl.append(mainEl)
+}
+
+function renderSalePage(appEl:Element) {
+    let mainEl = document.createElement('main')
+
+    let titleEl = document.createElement('h1')
+    titleEl.textContent = 'Sale'
+
+    mainEl.append(titleEl)
+    appEl.append(mainEl)
+}
+
+function renderHeader(appEl: Element) {
+    let headerEl = document.createElement('header')
+    let homeLink = document.createElement('a')
+    homeLink.textContent = 'Home'
+
+    let girlsLink = document.createElement('a')
+    girlsLink.textContent = 'Girls'
+
+    let guysLink = document.createElement('a')
+    guysLink.textContent = 'Guys'
+
+    let saleLink = document.createElement('a')
+    saleLink.textContent = 'Sale'
+
+    headerEl.append(homeLink, girlsLink, guysLink, saleLink)
+    appEl.append(headerEl)
+}
 function render () {
-//   <main>
-//   <div>
-//     <img src="https://img.hollisterco.com/is/image/anf/KIC_324-1085-0123-100_prod1" alt="" width="200" />
-//     <h3>Crewneck T-Shirt 3-Pack</h3>
-//     <h3>40</h3>
-//     <h3>21.99</h3>
-//   </div>
-// </main>
-let mainEl = document.createElement('main')
+let appEl = document.querySelector<HTMLElement>('#app')
+if (appEl === null) return
+appEl.textContent = ''
 
-let divMain = document.createElement('div')
-let imgDiv = document.createElement('img')
-let nameH3Div = document.createElement('h3')
-let priceH3Div = document.createElement('h3')
-let discountedPriceH3Div = document.createElement('h3')
+renderHeader(appEl)
+
+if (state.page === 'home') renderHomePage(appEl)
+
+if (state.page === 'girls') renderGirlsPage(appEl)
+
+if (state.page === 'guys') renderGuysPage(appEl)
+
+if (state.page === 'sale') renderSalePage(appEl)
 
 }
+render()
+
+window.state = state
+window.render = render
