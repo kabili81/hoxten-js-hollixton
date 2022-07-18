@@ -7,7 +7,44 @@
   margin-top: 60px;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
 header {
   display: grid;
   grid-auto-flow:column;
+  gap: 1rem;
+}
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.227);
+
+  padding: 2rem;
+
+  display: grid;
+  place-content: center;
+}
+
+.modal-container {
+  background-color: white;
+  padding: 3rem;
 }

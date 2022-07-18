@@ -91,10 +91,15 @@ function renderSalePage(appEl:Element) {
     appEl.append(mainEl)
 }
 function renderSearchModal(appEl:Element) {
+    let wrapperEl = document.createElement('div')
+    wrapperEl.className = 'modal-wrapper'
+
 let containerEl = document.createElement('div')
+containerEl.className = 'modal-container'
 
 let closeButton = document.createElement('button')
 closeButton.textContent = 'X'
+
 
 let titleEl = document.createElement('h2')
 titleEl.textContent = 'Search'
@@ -105,7 +110,8 @@ let inputEl = document.createElement('input')
 formEl.append(inputEl)
 
 containerEl.append(closeButton, titleEl, formEl)
-appEl.append(containerEl)
+wrapperEl.append(containerEl)
+appEl.append(wrapperEl)
 }
 function renderBaghModal() {
     
